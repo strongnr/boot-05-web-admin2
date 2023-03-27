@@ -8,5 +8,6 @@ public class hello {
         System.out.println("master test");
         System.out.println("666,test");
         System.out.println("success github");
+        System.out.println("success pull");
     }
 }
