@@ -7,5 +7,6 @@ public class hello {
         System.out.println("hello,world3");
         System.out.println("master test");
         System.out.println("666,test");
+        System.out.println("success github");
     }
 }
