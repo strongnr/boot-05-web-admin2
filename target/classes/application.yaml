@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_account?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: "123456"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+
+    druid:
+      filters: stat,wall
+      aop-patterns: com.atguigu.admin.*
+
+      stat-view-servlet:
+        url-pattern: /druid/*
+        enabled: true
+        login-username: admin
+        login-password: admin
+        restEnable: false
+
+      web-stat-filter:
+        enabled: true
+        urlPattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+      filter:
+        stat:
+          slow-sql-millis: 1000
+          logSlowSql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+  #            不允许删表
+
+# 配置mybatis规则
+mybatis:
+#  config-location: classpath:mybatis/mybatis-config.xml  #全局配置文件位置
+#  mapper-locations: classpath:mybatis/mapper/*.xml  #sql映射文件位置
+  configuration:
+    map-underscore-to-camel-case: true
+
+  jdbc:
+    template:
+      query-timeout: 3
+management:
+  health:
+    redis:
+      enabled: false
+
